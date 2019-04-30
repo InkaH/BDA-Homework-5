@@ -53,17 +53,10 @@ else:
 # The training dataset consists of 2000 images of dogs and cats, split
 # in half.  In addition, the validation set consists of 1000 images,
 # and the test set of 22000 images.
-INPUTS_DIR = os.getenv('VH_INPUTS_DIR', '/')
-data_set_files = [
-        get_first_file(os.path.join(INPUTS_DIR, 'datapath_train')),
-        get_first_file(os.path.join(INPUTS_DIR, 'datapath_validation')),
-        get_first_file(os.path.join(INPUTS_DIR, 'datapath_test'))
-    ]
 
-train_dir = os.getcwd()
-for file in data_set_files:
-    copy2(file, train_dir)
-
+datapath_train = "/valohai/inputs/datapath_train"
+datapath_validation = "/valohai/inputs/datapath_validation"
+datapath_test = "/valohai/inputs/datapath_test"
 (nimages_train, nimages_validation, nimages_test) = (2000, 1000, 22000)
 
 # ### Data augmentation
