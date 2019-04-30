@@ -22,8 +22,6 @@ from keras.layers.convolutional import Conv2D
 from keras.preprocessing.image import (ImageDataGenerator, array_to_img, 
                                       img_to_array, load_img)
 from keras import backend as K
-from utils import get_first_file
-from shutil import copy2
 
 from distutils.version import LooseVersion as LV
 from keras import __version__
