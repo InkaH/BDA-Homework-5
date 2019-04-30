@@ -1,0 +1,27 @@
+---
+
+- step:
+    name: tensorflow-check
+    image: valohai/keras:2.1.3-tensorflow1.4.0-python3.5-cuda8.0-cudnn6-devel-ubuntu14.04
+    command:
+      - pwd
+      - lsb_release -a
+      - python --version
+      - python -c "import keras; print(keras.__version__);"
+      - python -c "import tensorflow; print(tensorflow.__version__);"
+      - python -c "from tensorflow.python.client import device_lib; device_lib.list_local_devices();"
+      - nvidia-smi
+      - nvcc --version | grep release
+      - cat /usr/include/x86_64-linux-gnu/cudnn_v*.h | grep CUDNN_MAJOR -A 2
+
+- step:
+    name: train
+    image: valohai/keras:2.1.3-tensorflow1.4.0-python3.5-cuda8.0-cudnn6-devel-ubuntu14.04
+    command: python keras-dvc-cnn-simple.py
+    inputs:
+      - name: datapath_train
+        default: swift://f8a5dbc8033343aea820c139245afe13/Homework-5/BDA/train/train-set-images.tar.gz
+      - name: datapath_validation
+        default: swift://f8a5dbc8033343aea820c139245afe13/Homework-5/BDA/validation/validation-set-images.tar.gz
+      - name: datapath_test
+        default: swift://f8a5dbc8033343aea820c139245afe13/Homework-5/BDA/test/test-set-images.tar.gz
