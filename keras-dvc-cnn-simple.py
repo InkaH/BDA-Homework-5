@@ -47,9 +47,9 @@ else:
 # in half.  In addition, the validation set consists of 1000 images,
 # and the test set of 22000 images.
 
-datapath_train = utils.get_file("data_train", "file:/valohai/inputs/datapath_train/train-set-images.tar.gz", extract=True, archive_format='auto')
-datapath_validation = utils.get_file("data_test", "file:/valohai/inputs/datapath_validation/validation-set-images.tar.gz", extract=True, archive_format='auto')
-datapath_test = utils.get_file("data_validation", "file:/valohai/inputs/datapath_test/test-set-images.tar.gz", extract=True, archive_format='auto')
+datapath_train = "/valohai/inputs/train"
+datapath_validation = "/valohai/inputs/validation"
+datapath_test = "/valohai/inputs/test"
 (nimages_train, nimages_validation, nimages_test) = (2000, 1000, 22000)
 
 # ### Data augmentation
