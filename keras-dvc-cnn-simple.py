@@ -22,7 +22,9 @@ from keras.layers.convolutional import Conv2D
 from keras.preprocessing.image import (ImageDataGenerator, array_to_img, 
                                       img_to_array, load_img)
 from keras import backend as K
-import argparse
+from utils import get_first_file
+from shutil import copy2
+
 from distutils.version import LooseVersion as LV
 from keras import __version__
 
@@ -51,15 +53,16 @@ else:
 # The training dataset consists of 2000 images of dogs and cats, split
 # in half.  In addition, the validation set consists of 1000 images,
 # and the test set of 22000 images.
-parser = argparse.ArgumentParser(description='Homework 5')
-parser.add_argument('datapath_train', type=str)
-parser.add_argument('datapath_validation', type=str)
-parser.add_argument('datapath_test', type=str)
+INPUTS_DIR = os.getenv('VH_INPUTS_DIR', '/')
+data_set_files = [
+        get_first_file(os.path.join(INPUTS_DIR, 'datapath_train')),
+        get_first_file(os.path.join(INPUTS_DIR, 'datapath_validation')),
+        get_first_file(os.path.join(INPUTS_DIR, 'datapath_test'))
+    ]
 
-args = parser.parse_args()
-datapath_train = args.datapath_train
-datapath_validation= args.datapath_validation
-datapath_test = args.datapath_test
+train_dir = os.getcwd()
+for file in data_set_files:
+    copy2(file, train_dir)
 
 (nimages_train, nimages_validation, nimages_test) = (2000, 1000, 22000)
 
