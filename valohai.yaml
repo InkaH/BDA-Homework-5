@@ -20,8 +20,8 @@
     command: python keras-dvc-cnn-simple.py
     inputs:
       - name: datapath_train
-        default: swift://f8a5dbc8033343aea820c139245afe13/Homework-5/BDA/train/train-set-images.tar.gz
+        default: swift://f8a5dbc8033343aea820c139245afe13/BDA/train/train-set-images.tar.gz
       - name: datapath_validation
-        default: swift://f8a5dbc8033343aea820c139245afe13/Homework-5/BDA/validation/validation-set-images.tar.gz
+        default: swift://f8a5dbc8033343aea820c139245afe13/BDA/validation/validation-set-images.tar.gz
       - name: datapath_test
-        default: swift://f8a5dbc8033343aea820c139245afe13/Homework-5/BDA/test/test-set-images.tar.gz
+        default: swift://f8a5dbc8033343aea820c139245afe13/BDA/test/test-set-images.tar.gz
