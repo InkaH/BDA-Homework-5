@@ -28,9 +28,6 @@ from keras import __version__
 
 import numpy as np
 
-print('Using Keras version:', __version__, 'backend:', K.backend())
-assert(LV(__version__) >= LV("2.0.0"))
-
 # If we are using TensorFlow as the backend, we can use TensorBoard to
 # visualize our progress during training.
 
@@ -58,6 +55,11 @@ parser = argparse.ArgumentParser(description='Homework 5')
 parser.add_argument('datapath_train', type=str)
 parser.add_argument('datapath_validation', type=str)
 parser.add_argument('datapath_test', type=str)
+
+args = parser.parse_args()
+datapath_train = args.datapath_train
+datapath_validation= args.datapath_validation
+datapath_test = args.datapath_test
 
 (nimages_train, nimages_validation, nimages_test) = (2000, 1000, 22000)
 
