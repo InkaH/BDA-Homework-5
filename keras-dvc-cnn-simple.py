@@ -23,11 +23,6 @@ from keras.preprocessing.image import (ImageDataGenerator, array_to_img,
                                       img_to_array, load_img)
 from keras import backend as K
 
-from distutils.version import LooseVersion as LV
-from keras import __version__
-
-import numpy as np
-
 # If we are using TensorFlow as the backend, we can use TensorBoard to
 # visualize our progress during training.
 
