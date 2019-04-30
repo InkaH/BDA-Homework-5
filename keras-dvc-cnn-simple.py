@@ -22,7 +22,7 @@ from keras.layers.convolutional import Conv2D
 from keras.preprocessing.image import (ImageDataGenerator, array_to_img, 
                                       img_to_array, load_img)
 from keras import backend as K
-
+from keras import utils
 # If we are using TensorFlow as the backend, we can use TensorBoard to
 # visualize our progress during training.
 
@@ -47,9 +47,9 @@ else:
 # in half.  In addition, the validation set consists of 1000 images,
 # and the test set of 22000 images.
 
-datapath_train = "/valohai/inputs/datapath_train"
-datapath_validation = "/valohai/inputs/datapath_validation"
-datapath_test = "/valohai/inputs/datapath_test"
+datapath_train = utils.get_file("datapath_train", "/valohai/inputs/datapath_train", extract=True, archive_format='auto')
+datapath_validation = utils.get_file("datapath_validation", "/valohai/inputs/datapath_validation", extract=True, archive_format='auto')
+datapath_test = utils.get_file("datapath_test", "/valohai/inputs/datapath_test", extract=True, archive_format='auto')
 (nimages_train, nimages_validation, nimages_test) = (2000, 1000, 22000)
 
 # ### Data augmentation
