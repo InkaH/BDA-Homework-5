@@ -47,9 +47,9 @@ else:
 # in half.  In addition, the validation set consists of 1000 images,
 # and the test set of 22000 images.
 
-datapath_train = "/valohai/inputs/train"
-datapath_validation = "/valohai/inputs/validation"
-datapath_test = "/valohai/inputs/test"
+datapath_train = "/train"
+datapath_validation = "/validation"
+datapath_test = "/test"
 (nimages_train, nimages_validation, nimages_test) = (2000, 1000, 22000)
 
 # ### Data augmentation
